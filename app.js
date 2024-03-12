@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-// require('./db/connection');
+require('./db/connection');
 // // const axios = require('axios');
 
 
@@ -20,11 +20,11 @@ app.get('/', (req, res) => {
 
 
 
-app.use(require('./routers/staffprofiles'));
+// app.use(require('./routers/staffprofiles'));
 
-app.use(require('./routers/devices'));
+// app.use(require('./routers/devices'));
 
-app.use(require('./routers/customerprofiles'));
+// app.use(require('./routers/customerprofiles'));
 
 
 
