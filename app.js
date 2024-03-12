@@ -15,7 +15,7 @@ app.use(cors())
 
 app.get('/', (req, res) => {
     const date = Date.now();
-    res.send("server is running " + date);
+    res.send("aaa" + date);
 });
 
 
