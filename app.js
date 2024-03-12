@@ -29,5 +29,5 @@ app.get('/', (req, res) => {
 
 
 
-app.listen(process.env.PORT || 1337, () => console.log("running on 1337"));
+app.listen(1337, () => console.log("running on 1337"));
 
