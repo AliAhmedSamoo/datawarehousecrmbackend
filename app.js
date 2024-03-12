@@ -20,11 +20,11 @@ app.get('/', (req, res) => {
 
 
 
-// app.use(require('./routers/staffprofiles'));
+app.use(require('./routers/staffprofiles'));
 
-// app.use(require('./routers/devices'));
+app.use(require('./routers/devices'));
 
-// app.use(require('./routers/customerprofiles'));
+app.use(require('./routers/customerprofiles'));
 
 
 
