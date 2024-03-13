@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     const date = Date.now();
-    res.send("Server is running " + date);
+    res.send("Server is running 1" + date);
 });
 
 
