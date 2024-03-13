@@ -1,9 +1,11 @@
 
 const express = require("express");
-const cors = require("cors");
+
 const app = express();
 require('./db/connection');
-const axios = require('axios');
+
+const cors = require('cors');
+app.use(cors());
 
 
 
@@ -11,7 +13,7 @@ const axios = require('axios');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors())
+
 
 app.get('/', (req, res) => {
     const date = Date.now();
