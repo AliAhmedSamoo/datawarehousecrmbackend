@@ -32,6 +32,7 @@ app.use(require('./routers/devices'));
 
 app.use(require('./routers/customerprofiles'));
 app.use(require('./routers/post'));
+app.use(require('./routers/Finance'));
 
 
 
