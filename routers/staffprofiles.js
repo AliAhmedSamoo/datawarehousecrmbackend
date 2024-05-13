@@ -8,12 +8,12 @@ const saltRounds = 10;
 
 
 router.post("/addstaff", async (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
     try {
 
 
 
-        const { FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, Title, Department, Supervisor, WorkLocation, StartingDate, Salary, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes, OfficalName, OfficalPosition, AppraisalDate, IDType, EmploymentType, Condition, password, email } = req.body
+        const { FullName, cv, profilepic, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, Title, Department, Supervisor, WorkLocation, StartingDate, Salary, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes, OfficalName, OfficalPosition, AppraisalDate, IDType, EmploymentType, Condition, password, email } = req.body
 
         const salt = await bcrypt.genSalt(saltRounds);
 
@@ -34,7 +34,7 @@ router.post("/addstaff", async (req, res) => {
 
 
 
-            const newStaffProfiles = await new StaffProfiles({ FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, Title, Department, Supervisor, WorkLocation, StartingDate, Salary, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes, OfficalName, OfficalPosition, AppraisalDate, IDType, EmploymentType, Condition, password: hashedPassword, email });
+            const newStaffProfiles = await new StaffProfiles({ FullName, cv, profilepic, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, Title, Department, Supervisor, WorkLocation, StartingDate, Salary, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes, OfficalName, OfficalPosition, AppraisalDate, IDType, EmploymentType, Condition, password: hashedPassword, email });
             await newStaffProfiles.save()
 
 
@@ -59,9 +59,9 @@ router.post("/addstaffcareer", async (req, res) => {
 
 
     try {
-        const { FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes } = req.body
+        const { email, cv, profilepic, FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes } = req.body
 
-        const newStaffProfiles = await new career({ FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes });
+        const newStaffProfiles = await new career({ email, cv, profilepic, FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes });
         await newStaffProfiles.save()
         res.json("formsubmitted")
 

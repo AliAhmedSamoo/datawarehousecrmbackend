@@ -121,6 +121,14 @@ const Crm = new mongoose.Schema({
         type: String,
         
     },
+    cv: {
+        type: String,
+        
+    },
+    profilepic: {
+        type: String,
+        
+    },
     
     
    
