@@ -50,7 +50,7 @@ router.post('/addjob', async (req, res) => {
 
 
 
-        const { JobTitle, shift, Discription, Condition, Location } = req.body
+        const { jobTitle, shift, Discription, Condition, Location } = req.body
 
 
 
@@ -59,7 +59,7 @@ router.post('/addjob', async (req, res) => {
 
 
 
-        const job = await new jobs({ JobTitle, shift, Discription, Condition, Location });
+        const job = await new jobs({ jobTitle, shift, Discription, Condition, Location });
          await job.save()
 
     
