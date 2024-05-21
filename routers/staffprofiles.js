@@ -59,9 +59,9 @@ router.post("/addstaffcareer", async (req, res) => {
 
 
     try {
-        const { email, cv, profilepic, FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes } = req.body
+        const {jobtitle, shift, Discription, Condition, Location, email, cv, profilepic, FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes } = req.body
 
-        const newStaffProfiles = await new career({ email, cv, profilepic, FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes });
+        const newStaffProfiles = await new career({jobtitle, shift, Discription, Condition, Location, email, cv, profilepic, FullName, DateOfBirth, Address, ContactDetails, NextOfKinNameandContactNumber, SocailSecurityNumber, IDNumber, EmergancyContactNumberAndName, FacebookLink, TwitterLink, TiktiokLink, InstagramLink, youtubeLink, PerformanceAppraisalRelatedNotes });
         await newStaffProfiles.save()
         res.json("formsubmitted")
 
