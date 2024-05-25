@@ -34,7 +34,7 @@ app.use(require('./routers/customerprofiles'));
 app.use(require('./routers/post'));
 app.use(require('./routers/Finance'));
 
-
+app.use(require('./routers/others'));
 
 https.createServer(options, app).listen(1337, () => console.log("running on 1337"));
 // app.listen(1337, () => console.log("running on 1337"));
