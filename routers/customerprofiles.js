@@ -174,6 +174,61 @@ router.post("/Subription", async (req, res) => {
 });
 
 
+
+router.post("/addinvoice", async (req, res) => {
+    // console.log(req.body)
+    try {
+        const {
+
+            DeviceID,
+            CustomerID,
+            Package,
+            DevicePrice,
+            PackagePrice,
+            SimPrice,
+            Taxes,
+            Other,
+            SimID,
+            SimNumber,
+            SimStatus
+
+
+
+        } = req.body
+
+
+        const newCustomerProfiles = await new Invoice({
+            DeviceID,
+            CustomerID,
+            Package,
+            DevicePrice,
+            PackagePrice,
+            SimPrice,
+            Taxes,
+            Other,
+            SimID,
+            SimNumber,
+            SimStatus
+        });
+        await newCustomerProfiles.save()
+
+     
+
+
+
+
+        const user3 = await device.find()
+        res.json(user3);
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
+
+
 router.post("/getcustomerdata", async (req, res) => {
 
     const { _id } = req.body
@@ -252,6 +307,28 @@ router.post("/dtlcustomerprofiles", async (req, res) => {
 
 });
 
+
+
+
+
+router.post("/dtlinvoice", async (req, res) => {
+
+    try {
+
+
+        await Invoice.deleteOne(req.body)
+
+        await Invoice.find().sort({ timestamp: -1 })
+            .then(Modules => res.json(Modules))
+
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
 // router.post("/dtlinvoice", async (req, res) => {
 
 //     try {
