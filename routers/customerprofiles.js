@@ -176,7 +176,7 @@ router.post("/Subription", async (req, res) => {
 
 
 router.post("/addinvoice", async (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
     try {
         const {
 
@@ -190,7 +190,23 @@ router.post("/addinvoice", async (req, res) => {
             Other,
             SimID,
             SimNumber,
-            SimStatus
+            SimStatus,
+
+
+
+            Billto,
+            Shipto,
+            Currency,
+            InvoiceBillingDate,
+            InvoiceDuedate,
+            Recurring,
+            DiscountType,
+            TotalCycles,
+            Depositpaid,
+            Donatetoacharity,
+            TotalToPay,
+
+
 
 
 
@@ -208,11 +224,23 @@ router.post("/addinvoice", async (req, res) => {
             Other,
             SimID,
             SimNumber,
-            SimStatus
+            SimStatus,
+
+            Billto,
+            Shipto,
+            Currency,
+            InvoiceBillingDate,
+            InvoiceDuedate,
+            Recurring,
+            DiscountType,
+            TotalCycles,
+            Depositpaid,
+            Donatetoacharity,
+            TotalToPay,
         });
         await newCustomerProfiles.save()
 
-     
+
 
 
 
