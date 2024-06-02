@@ -47,7 +47,10 @@ const Crm = new mongoose.Schema({
         type: String,
 
     },
+    file: {
+        type: String,
 
+    },
 
    
 

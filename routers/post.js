@@ -18,7 +18,7 @@ router.post('/upload', async (req, res) => {
 
 
 
-        const { category, title, description, authorName, authoremail, cover, authorid } = req.body
+        const {file, category, title, description, authorName, authoremail, cover, authorid } = req.body
 
 
 
@@ -27,7 +27,7 @@ router.post('/upload', async (req, res) => {
 
 
 
-        const apblogs = await new Apblogs({ category, title, description, authorName, authoremail, cover, authorid });
+        const apblogs = await new Apblogs({file, category, title, description, authorName, authoremail, cover, authorid });
         const ddd = await apblogs.save()
 
         console.log(ddd)
