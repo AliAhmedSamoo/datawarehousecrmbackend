@@ -183,6 +183,26 @@ router.post("/dtljobs", async (req, res) => {
 
 });
 
+router.post("/dtldoc", async (req, res) => {
+
+    try {
+
+
+        await Apblogs.deleteOne(req.body)
+
+        await Apblogs.find().sort({ timestamp: -1 })
+            .then(Modules => res.json(Modules))
+
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
+
+
 
 
 
