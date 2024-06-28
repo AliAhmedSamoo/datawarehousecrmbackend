@@ -4,6 +4,7 @@ require('../db/connection');
 const Contacttttt = require("../modulesdb/contact")
 const Contract = require("../modulesdb/contract")
 const Events = require("../modulesdb/events")
+const Contactus = require("../modulesdb/contactus")
 
 
 router.post("/addcontact", async (req, res) => {
@@ -33,6 +34,111 @@ router.post("/addcontact", async (req, res) => {
 
 
 });
+
+
+router.post("/addcontactus", async (req, res) => {
+    console.log(req.body)
+    try {
+
+
+
+        const { Name, Subject, Email, Phone, Message } = req.body
+
+
+
+
+
+        const newContact = await new Contactus({ Name, Subject, Email, Phone, Message });
+        await newContact.save()
+
+
+        await Contacttttt.find().sort({ timestamp: -1 })
+            .then(Modules => res.json(Modules))
+
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
+
+
+
+router.get("/getcontactus", async (req, res) => {
+    console.log("get contact")
+    try {
+
+
+
+
+
+        await Contactus.find().sort({ timestamp: -1 })
+            .then(Modules => res.json(Modules))
+
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
+
+
+router.post("/dtlcontactus", async (req, res) => {
+
+    try {
+
+
+        await Contactus.deleteOne(req.body)
+
+        await Contactus.find().sort({ timestamp: -1 })
+            .then(Modules => res.json(Modules))
+
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
+
+
+router.post("/editcontactus", async (req, res) => {
+
+
+    const { _id } = req.body
+    console.log(_id)
+    try {
+
+
+
+        await Contactus.findOneAndUpdate(
+            { _id },
+            {
+                status: true,
+
+
+
+            },
+            { new: true }
+        );
+
+        await Contactus.find().sort({ timestamp: -1 })
+            .then(Modules => res.json(Modules))
+
+    } catch (error) {
+        console.log(error)
+        res.send("Something Went Wrong Try Again")
+    }
+
+
+});
+
+
 
 router.get("/getcontact", async (req, res) => {
     console.log("get contact")
@@ -172,7 +278,7 @@ router.post('/addevent', async (req, res) => {
         ];
 
         // Convert eventmonth to the corresponding month name
-        const month = months[parseInt(eventmonth) ];
+        const month = months[parseInt(eventmonth)];
 
         // Create and save the new event
         const Event = await new Events({
