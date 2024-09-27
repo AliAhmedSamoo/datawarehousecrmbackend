@@ -10,8 +10,8 @@ app.use(cors());
 
 
 const options = {
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.crt')
+     key: fs.readFileSync('/etc/letsencrypt/live/backend.datawarehousegh.com/privkey.pem'),
+     cert: fs.readFileSync('/etc/letsencrypt/live/backend.datawarehousegh.com/fullchain.pem'),
 };
 
 
